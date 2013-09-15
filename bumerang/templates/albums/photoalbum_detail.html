@@ -306,7 +306,7 @@
 
 {#    <section class="b-popup" id="popup-move-video" style="left:50%; top:100px;">#}
 {#    <section class="b-form b-form_smaller b-form_popup">#}
-{#        <form action="{% url photo-move %}" method="post">#}
+{#        <form action="{% url "photo-move" %}" method="post">#}
 {#            {% csrf_token %}#}
 {#            <header class="b-form__header">#}
 {#                <h3>#}
@@ -349,7 +349,7 @@
     <div id="video-empty-block-tpl" class="b-empty b-empty_video" style="display: none;">
         <div class="b-empty__pic"></div>
         <strong class="b-empty__text">Нет видеороликов</strong>
-        <div><a href="{% url video-add %}" class="b-button b-button_yellow">Загрузить видео</a></div>
+        <div><a href="{% url "video-add" %}" class="b-button b-button_yellow">Загрузить видео</a></div>
     </div>
 </div>
 
@@ -382,7 +382,7 @@
 
     <section class="b-popup" id="popup-move">
         <section class="b-form b-form_smaller b-form_popup" style="padding-bottom: 14px;">
-            <form action="{% url photo-move %}" method="post">
+            <form action="{% url "photo-move" %}" method="post">
                 {% csrf_token %}
                 <header class="b-form__header" style="padding-right: 10px;">
                     <h3>

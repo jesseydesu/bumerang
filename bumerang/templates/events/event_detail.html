@@ -164,9 +164,9 @@
                                 {% endif %}
                             {% else %}
                                 <h3 class="title">Вы не авторизованы</h3>
-                                <a href="{% url login %}">Войдите</a>
+                                <a href="{% url "login" %}">Войдите</a>
                                 или
-                                <a href="{% url registration %}">зарегистрируйтесь</a>
+                                <a href="{% url "registration" %}">зарегистрируйтесь</a>
                                 чтобы отправить заявку
                             {% endif %}
                         {% endwith %}

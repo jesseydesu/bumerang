@@ -17,7 +17,7 @@
                         {{ newsitem.text|safe }}
                     </blockquote>
                 </figure>
-                <a href="{% url news-list %}" class="return-to-previous-page">&larr; Вернуться к списку новостей</a>
+                <a href="{% url "news-list" %}" class="return-to-previous-page">&larr; Вернуться к списку новостей</a>
             </div>
         {% endautoescape %}
     </article>

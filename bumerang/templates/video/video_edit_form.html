@@ -24,7 +24,7 @@
                         <div class="b-profile__txt">
                             {% if user.id == object.owner_id %}
                                 <ul class="b-service-buttons">
-                                    <li class="edit"><i></i><a href="{% url profile-edit %}">Редактировать профиль</a></li>
+                                    <li class="edit"><i></i><a href="{% url "profile-edit" %}">Редактировать профиль</a></li>
                                 </ul>
                             {% endif %}
                             <a href="{% url profile-detail object.owner_id %}">

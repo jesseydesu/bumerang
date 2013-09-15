@@ -31,7 +31,7 @@
 </dd>
 {% endif %}
 {#<dt class="first{% ifequal selected 'profile' %} selected{% endifequal %}">#}
-{#    <a href="{% url profile-detail profile.id %}">#}
+{#    <a href="{% url "profile-detail" profile.id %}">#}
 {#        <span>Профиль</span>#}
 {#    </a>#}
 {#    <i class="l"></i>#}
@@ -71,7 +71,7 @@
 {#    {% ifequal profile request.user.profile %}#}
 {#        <dt{% ifequal selected 'messages' %} class="selected"{% endifequal %}>#}
 {#        {% spaceless %}#}
-{#            <a href="{% url messages_redirect %}">#}
+{#            <a href="{% url "messages_redirect" %}">#}
 {#                <span>Сообщения</span>#}
 {#            </a>#}
 {#        {% endspaceless %}#}

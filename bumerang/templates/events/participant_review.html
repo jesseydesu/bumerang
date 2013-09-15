@@ -31,7 +31,7 @@
                             <dl>
                                 <dt>Отправитель</dt>
                                 <dd>{{ profile.get_type_display }} <a
-                                    href="{% url profile-detail profile.id %}">{{ profile }}</a></dd>
+                                    href="{% url "profile-detail" profile.id %}">{{ profile }}</a></dd>
                             </dl>
                             {% if profile.type != 1 %}
                                 <dl>

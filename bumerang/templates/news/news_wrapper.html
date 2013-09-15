@@ -11,12 +11,12 @@
             {% block right_menu %}
                 <nav class="b-side-nav d-indent">
                     <ul>
-                        <h4>{% if current_category %}<a href="{% url news-list %}">Все новости</a>{% else %}Все новости{% endif %}</h4>
+                        <h4>{% if current_category %}<a href="{% url "news-list" %}">Все новости</a>{% else %}Все новости{% endif %}</h4>
                         {% for category in news_categories %}
                             {% ifequal category current_category %}
                                 <li>{{ category.title }}</li>
                             {% else %}
-                                <li><a href="{% url news-list-category category.slug %}"
+                                <li><a href="{% url "news-list-category" category.slug %}"
                                        title="{{ category.title }}">{{ category.title }}</a></li>
                             {% endifequal %}
                         {% endfor %}
@@ -30,7 +30,7 @@
 {#                        <div class="b-adv__title">Реклама</div>#}
                     </header>
                     <p>
-                        <a href="{% url registration %}">
+                        <a href="{% url "registration" %}">
                             <img src="{{ STATIC_URL }}i/banner.png" alt="Регистрация" width="200" height="340" />
                         </a>
                     </p>

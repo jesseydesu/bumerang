@@ -9,7 +9,7 @@
         <hr />
     </div>
     <h3>Сообщения</h3>
-    <h4>Входящие&nbsp;<a href="{% url messages_outbox %}">Исходящие</a></h4>
+    <h4>Входящие&nbsp;<a href="{% url "messages_outbox" %}">Исходящие</a></h4>
     <p>Всего полученных сообщений: {% inbox_all_count %}</p>
 {% endblock %}
 
@@ -35,7 +35,7 @@
 {#                        <p>{{ message.sender.profile.description|linebreaksbr }}</p>#}
                     
                         <h4>
-                            <a href="{% url profile-detail message.sender.profile.id %}">{{ message.sender.profile.title|default:message.sender.profile.username }}</a>
+                            <a href="{% url "profile-detail" message.sender.profile.id %}">{{ message.sender.profile.title|default:message.sender.profile.username }}</a>
                             <span>{{ message.sent_at|date:"j.m.Y в G:i" }}</span>
                         </h4>
                         <h5>
@@ -71,7 +71,7 @@
 {#                                <a href="{{message.get_absolute_url }}">{{ message.subject }}</a>#}
 {#                                {% if message.replied %}</em>{% endif %}#}
 {#                                {% if message.new %}</strong>{% endif %}#}
-{#                                <p>От пользователя:&nbsp;<a href="{% url profile-detail message.sender.profile.id %}">{{ message.sender.profile.title }}</a></p>#}
+{#                                <p>От пользователя:&nbsp;<a href="{% url "profile-detail" message.sender.profile.id %}">{{ message.sender.profile.title }}</a></p>#}
 {#                                <p>Получено:&nbsp;{{ message.sent_at|date:"j.m.Y в G:i" }}</p>#}
 {#                                <div>#}
 {#                                    {{ message.body|linebreaksbr|truncatechars:60 }}#}

@@ -17,7 +17,8 @@ from django.http import (
 from django.forms.models import modelformset_factory
 from django.forms.util import ErrorList
 from django.shortcuts import get_object_or_404
-from django.utils.simplejson.encoder import JSONEncoder
+# from django.utils.simplejson.encoder import JSONEncoder
+from json import encoder as JSONEncoder
 from django.utils.translation import ugettext as _
 from django.utils.timezone import now
 from django.views.generic import (

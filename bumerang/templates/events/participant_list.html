@@ -60,7 +60,7 @@
                                                     {% endif %}
                                                 </td>
                                                 <td>
-                                                    <a href="{% url profile-detail profile.id %}">{{ profile.title }}</a>
+                                                    <a href="{% url "profile-detail" profile.id %}">{{ profile.title }}</a>
                                                     ( {{ profile.get_type_display|lower }} )
                                                 </td>
                                                 <td>

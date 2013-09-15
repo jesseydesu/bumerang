@@ -1,10 +1,10 @@
-django==1.4.5
+django==1.5.3
 Pillow
 South
 django-debug-toolbar
 django-filebrowser==3.5.2
 django-mptt
-django-sitetree==0.6
+django-sitetree==0.10
 django-tinymce
 wsgiref==0.1.2
 django-extensions
@@ -12,12 +12,12 @@ werkzeug
 django-ratings==0.3.6
 fabric
 boto==2.9.5
-django-storages=1.1.8
+django-storages==1.1.8
 ipython
 mysql-python
 git+git://github.com/hmarr/django-ses.git
 pydkim
-pytz
+pytz>=2013b
 dnspython
 django-celery-with-redis
 simplejson

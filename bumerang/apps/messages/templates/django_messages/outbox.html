@@ -32,7 +32,7 @@
                     </div>
                     <div class="rp__txt">
                         <h4>
-                            <a href="{% url profile-detail message.sender.profile.id %}">{{ message.sender.profile.title|default:message.sender.profile.username }}</a>
+                            <a href="{% url "profile-detail" message.sender.profile.id %}">{{ message.sender.profile.title|default:message.sender.profile.username }}</a>
                             <span>{{ message.sent_at|date:"j.m.Y в G:i" }}</span>
                         </h4>
                         <h5>
@@ -73,7 +73,7 @@
 {#        <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>#}
 {#        </td>#}
 {#        <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>#}
-{#        <td><a href="{% url messages_delete message.id %}?next={% url messages_outbox %}">{% trans "delete" %}</a></td>#}
+{#        <td><a href="{% url messages_delete message.id %}?next={% url "messages_outbox" %}">{% trans "delete" %}</a></td>#}
 {#    </tr>#}
 {#{% endfor %}#}
 {#    </tbody>#}

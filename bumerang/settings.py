@@ -12,11 +12,11 @@ class CommonSettings(Settings):
     DEBUG = False
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'bumerang.db',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'probumerangdb',
+            'USER': 'root',
+            'PASSWORD': 'root',
+            'HOST': '127.0.0.1',
             'PORT': '',
         },
     }
@@ -39,6 +39,7 @@ class CommonSettings(Settings):
     USE_I18N = True
     USE_L10N = True
     USE_TZ = True
+    SECRET_KEY = 'fag4ag41ag417a7ghad7h17ad67h4ad56h1asd7h1as756dh41asd76h1a67h'
     PLAYLIST_START_TIME_SHIFT = {'days': -1, 'hours': 23}
 
     #Storage settings
@@ -297,9 +298,14 @@ try:
     from bumerang.local_settings import *
 except ImportError:
     class LocalSettingsMixin(object):
-        pass
+        DEBUG = True
+        TEMPLATE_DEBUG = DEBUG
+        LOCALHOST = True
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        RTMP_SERVER_FORMAT = 'rtmp://stream.probumerang.tv/cfx/st/mp4:{0}'
 
-class BumerSettings(LocalSettingsMixin, S3StaticMixin, CommonSettings):
+
+class BumerSettings(LocalSettingsMixin, CommonSettings):
 
     @property
     def INSTALLED_APPS(self):
