@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth import get_user_model
+
 try:
     from cStringIO import StringIO
 except ImportError:
@@ -6,13 +8,15 @@ except ImportError:
 
 from PIL import Image
 from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
 from django.core.files.base import ContentFile
 from django.utils.translation import ugettext_lazy as _
 from django import forms
 
 from bumerang.apps.accounts.models import Profile, Faculty, Service, Teammate
 from bumerang.apps.utils.forms import S3StorageFormMixin, TemplatedForm
+
+
+User = get_user_model()
 
 
 class InfoEditFormsMixin(forms.ModelForm):

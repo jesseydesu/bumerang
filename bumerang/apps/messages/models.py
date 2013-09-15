@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.db.models import signals
-from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
@@ -47,8 +46,8 @@ class Message(models.Model):
     """
     subject = models.CharField(_("Subject"), max_length=120)
     body = models.TextField(_("Body"))
-    sender = models.ForeignKey(User, related_name='sent_messages', verbose_name=_("Sender"))
-    recipient = models.ForeignKey(User, related_name='received_messages', null=True, blank=True, verbose_name=_("Recipient"))
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_messages', verbose_name=_("Sender"))
+    recipient = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='received_messages', null=True, blank=True, verbose_name=_("Recipient"))
     parent_msg = models.ForeignKey('self', related_name='next_messages', null=True, blank=True, verbose_name=_("Parent message"))
     sent_at = models.DateTimeField(_("sent at"), null=True, blank=True)
     read_at = models.DateTimeField(_("read at"), null=True, blank=True)

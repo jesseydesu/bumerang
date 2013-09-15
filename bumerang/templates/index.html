@@ -42,7 +42,7 @@
                                     </h2>
                                     {% if playlist %}
                                     {% for year, month, day in next_days %}
-                                        <a href="{% url playlist-detail playlist.channel.slug year month day %}"
+                                        <a href="{% url "playlist-detail" playlist.channel.slug year month day %}"
                                            class="cal-day{% if forloop.counter <= 3 %} cal-day{{ forloop.counter }}{% endif %}">
                                             {{ day }}</a>
                                     {% endfor %}
@@ -110,7 +110,7 @@
     };
     start_movie = function(playerID){
         $.ajax({
-            url: "{% url current-playlist-item "main" %}",
+            url: "{% url "current-playlist-item" "main" %}",
             success: function(data){
                 if (uppodGet(playerID, "get[file]").replace("///", "/") != data['file']){
                     uppodSend(playerID, "file:"+data['file']);

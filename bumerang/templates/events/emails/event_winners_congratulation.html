@@ -12,7 +12,7 @@
         {% endfor %}
         </ul>
         <p style="margin: 4px 5px;">
-            Ссылка для просмотра победителей события: http://www.probumerang.tv{% url event-winners-list event.id %}.
+            Ссылка для просмотра победителей события: http://www.probumerang.tv{% url "event-winners-list" event.id %}.
         </p>
     </td>
 {% endblock %}

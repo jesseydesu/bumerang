@@ -1,8 +1,12 @@
 from django import forms
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
+
+
+User = get_user_model()
 
 if "notification" in settings.INSTALLED_APPS:
     from notification import models as notification

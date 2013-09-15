@@ -42,6 +42,8 @@ class CommonSettings(Settings):
     SECRET_KEY = 'fag4ag41ag417a7ghad7h17ad67h4ad56h1asd7h1as756dh41asd76h1a67h'
     PLAYLIST_START_TIME_SHIFT = {'days': -1, 'hours': 23}
 
+    AUTH_USER_MODEL = 'accounts.User'
+
     #Storage settings
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(PROJECT_ROOT, MEDIA_URL[1:])

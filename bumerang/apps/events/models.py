@@ -4,7 +4,7 @@ import os
 from django.core.exceptions import ValidationError
 from django.db.models.signals import post_save
 from django.utils.safestring import mark_safe
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db.models.aggregates import Max
 from django.db import models
 from django.utils.timezone import now
@@ -47,7 +47,7 @@ class Event(FileModelMixin, models.Model):
         'self', verbose_name=u'В рамках фестиваля', related_name='contest_set',
         limit_choices_to={'type':FESTIVAL}, on_delete=models.SET_NULL,
         **nullable)
-    owner = models.ForeignKey(User, related_name='owned_events')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='owned_events')
     type = models.IntegerField(u'Тип события', choices=TYPES_CHOICES)
     is_approved = models.BooleanField(u'Заявка подтверждена', default=False)
     publish_winners = models.BooleanField(
@@ -76,7 +76,7 @@ class Event(FileModelMixin, models.Model):
         u'Дата добавления', default=now, editable=False)
 
     jurors = models.ManyToManyField(
-        User, verbose_name=u'Члены жюри', through='Juror',
+        settings.AUTH_USER_MODEL, verbose_name=u'Члены жюри', through='Juror',
         related_name='juror_events')
 
     class Meta:
@@ -147,7 +147,7 @@ class Event(FileModelMixin, models.Model):
 
 class Juror(FileModelMixin, models.Model):
     event = models.ForeignKey(Event, verbose_name=u'Событие')
-    user = models.ForeignKey(User, verbose_name=u'Пользователь')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'Пользователь')
     email = models.EmailField(_('e-mail address'))
     info_second_name = models.CharField(u'Фамилия', max_length=100)
     info_name = models.CharField(u'Имя', max_length=100)
@@ -215,7 +215,7 @@ class Nomination(models.Model):
 
 
 class Participant(models.Model):
-    owner = models.ForeignKey(User, verbose_name=u'Участник')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'Участник')
     event = models.ForeignKey(Event, verbose_name=u'Событие')
     index_number = models.IntegerField(u'Номер заявки', editable=False)
     is_accepted = models.BooleanField(
@@ -299,7 +299,7 @@ class VideoNomination(models.Model):
 
 
 class ParticipantVideoScore(models.Model):
-    owner = models.ForeignKey(User, verbose_name=u'Участник')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'Участник')
     participant_video = models.ForeignKey(
         ParticipantVideo, verbose_name=u'Видео участника')
     score = models.SmallIntegerField(u'Оценка', validators=[validate_score])

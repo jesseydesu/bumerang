@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import User, UserManager
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User, UserManager, AbstractUser
 from django.db import models
+from django.conf import settings
 
 from bumerang.apps.utils.functions import get_path
 from bumerang.apps.utils.models import FileModelMixin
@@ -8,6 +10,8 @@ from bumerang.apps.utils.media_storage import media_storage
 
 
 nullable = dict(null=True, blank=True)
+
+class User(AbstractUser):pass
 
 
 class Profile(FileModelMixin, User):
