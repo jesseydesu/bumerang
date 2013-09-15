@@ -42,7 +42,7 @@
                                     <table>
                                         <tr>
                                             <td style="width: 190px; text-align: center;">
-                                                <a href="{% url video-detail item.id %}" title="{{ item.title }}">
+                                                <a href="{% url "video-detail" item.id %}" title="{{ item.title }}">
                                                     <span>
                                                         <img src="{% if item.preview.thumbnail %}{{ item.preview.thumbnail.url }}{% else %}{{ STATIC_URL }}i/nophoto.png{% endif %}" width="190" height="123" alt="" />
                                                     </span>
@@ -55,7 +55,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="{% url video-detail item.id %}" title="{{ item.title }}"><h3>{{ item.title }}</h3></a>
+                                                <a href="{% url "video-detail" item.id %}" title="{{ item.title }}"><h3>{{ item.title }}</h3></a>
 
                                                 <div>
                                                     <span class="dark-gray">Участник </span>
