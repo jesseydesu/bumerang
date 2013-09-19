@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth import get_user_model
+from __future__ import unicode_literals
+from django.forms.widgets import HiddenInput
 
 try:
     from cStringIO import StringIO
@@ -10,6 +11,7 @@ from PIL import Image
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import get_user_model
 from django import forms
 
 from bumerang.apps.accounts.models import Profile, Faculty, Service, Teammate
@@ -124,21 +126,6 @@ class PasswordRecoveryForm(forms.Form):
         return email
 
 
-class ProfileInfoEditForm(InfoEditFormsMixin, forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = (
-            'title',
-            'nickname',
-            'country',
-            'region',
-            'city',
-            'birthday',
-            'gender',
-            'description',
-        )
-
-
 class ProfileAvatarEditForm(S3StorageFormMixin, forms.ModelForm):
     avatar_coords = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
@@ -176,7 +163,7 @@ class ProfileEmailEditForm(forms.ModelForm):
         fields = ('username',)
 
 
-#class UserProfileInfoForm(InfoEditFormsMixin, forms.ModelForm):
+
 class UserProfileInfoForm(EditFormsMixin, TemplatedForm):
     u"""
     Форма редактирования профиля пользователя

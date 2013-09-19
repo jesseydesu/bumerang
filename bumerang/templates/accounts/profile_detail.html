@@ -20,17 +20,15 @@
                     {% if object.min_avatar %}
                         <img src="{{ object.min_avatar.url }}" width="60" height="60" alt="" />
                     {% else %}
-
-                            {% if type == pf.TYPE_USER %}
-                                <img src="{{ STATIC_URL }}i/noava-b.jpg" width="60" height="60" alt="" />
-                            {% elif type == pf.TYPE_SCHOOL %}
-                                <img src="{{ STATIC_URL }}i/noava-school-b.png" width="60" height="60" alt="" />
-                            {% elif type == pf.TYPE_STUDIO %}
-                                <img src="{{ STATIC_URL }}i/noava-studio-b.png" width="60" height="60" alt="" />
-                            {% elif type == pf.TYPE_FESTIVAL %}
-                                <img src="{{ STATIC_URL }}i/noava-studio-b.png" width="60" height="60" alt="" />
-                            {% endif %}
-
+                        {% if type == pf.TYPE_USER %}
+                            <img src="{{ STATIC_URL }}i/noava-b.jpg" width="60" height="60" alt="" />
+                        {% elif type == pf.TYPE_SCHOOL %}
+                            <img src="{{ STATIC_URL }}i/noava-school-b.png" width="60" height="60" alt="" />
+                        {% elif type == pf.TYPE_STUDIO %}
+                            <img src="{{ STATIC_URL }}i/noava-studio-b.png" width="60" height="60" alt="" />
+                        {% elif type == pf.TYPE_FESTIVAL %}
+                            <img src="{{ STATIC_URL }}i/noava-studio-b.png" width="60" height="60" alt="" />
+                        {% endif %}
                     {% endif %}
                     <i class="b-ava__sh"></i>
                 </div>
